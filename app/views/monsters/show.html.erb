@@ -1,1 +1,34 @@
-<%# Update me %><%= @monster.inspect %>
+<!--<h1><%= @monster.name%></h1>-->
+<!--<p> <%= @monster.description%> </p>-->
+<!-- <button class="btn btn-danger">Eliminar</button> -->
+
+<% @tweet = Tweet.where(monster_id: @monster.id)%>
+
+<table class="table">
+    <three>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Boton</th>
+            <th>Tweet</th>
+        <tr>
+    </three>
+    <tbody>
+        <tr>
+            <td><%=@monster.name%></td>
+            <td><%=@monster.description%></td>
+            <td><button class="btn btn-danger">Eliminar</button></td>
+            <td>
+                <% @tweet.each do |t| %>
+                <% if t.monster_id == @monster.id  %>
+                    <%= t.content %><br>
+                <%end%>
+                <% end %>
+            </td>
+        <tr>
+    </tbody>
+</table>
+<div class="container-fluid text-center p-5">
+    <p> Copyright &copy; 2022</p>
+</div>
+

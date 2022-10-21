@@ -1,1 +1,15 @@
-<%# Update me %><%= @monsters.inspect %>
+
+<h1> Monstruos cargados </h1>
+<% @monsters.each do |m| %>
+   <!-- Nombre: <%= m.name%><br> -->
+   <!-- Descripcion: <%= m.description%><br> -->
+   <%if Tweet.where(monster_id: m.id).count > 1 %> 
+        <p style = "color: red;"> Twitero Destacado: 
+    <% end %>
+   <%= link_to m.name, m%><br>
+   <p style = "color: black;">
+   Descripcion: <%= m.description%><br><br>
+<% end %>
+<div class="container-fluid text-center p-5">
+    <p> Copyright &copy; 2022</p>
+</div>
